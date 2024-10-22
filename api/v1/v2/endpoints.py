@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from v1.api.services import fetch_yahoo_data
+from v1.v2.services import fetch_yahoo_data
 import pandas as pd
 from fastapi import HTTPException
 import yfinance as yf
