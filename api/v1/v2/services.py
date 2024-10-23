@@ -1,3 +1,4 @@
+# service.py
 from datetime import datetime, timedelta
 import pandas as pd
 import pandas_ta as ta
@@ -6,6 +7,7 @@ import json
 import numpy as np
 
 def add_vwap_signals(data, do_arrows=True, slope_degree=45, volumeLength=50):
+    
     
     data['ema5'] = data['Close'].ewm(span=5, adjust=False).mean()
     data['ema12'] = data['Close'].ewm(span=12, adjust=False).mean()
