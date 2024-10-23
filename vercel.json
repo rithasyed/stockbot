@@ -3,13 +3,10 @@
   "builds": [
     {
       "src": "api/main.py",
-      "use": "@vercel/python@3.1.0",
+      "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb",
         "runtime": "python3.9",
-        "pip": [
-          "--no-cache-dir"
-        ]
+        "maxLambdaSize": "15mb"
       }
     }
   ],
