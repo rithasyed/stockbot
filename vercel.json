@@ -9,7 +9,13 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/main.py"
+      "dest": "/api/main.py"
     }
-  ]
+  ],
+  "functions": {
+    "api/main.py": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
 }
