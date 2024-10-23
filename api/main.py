@@ -8,7 +8,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import urlencode
 from api.v1.router import router as v1_router
 import nest_asyncio  # type: ignore
-from mangum import Mangum
 nest_asyncio.apply()
 
 app = FastAPI()
@@ -37,9 +36,7 @@ async def flatten_query_string_lists(request: Request, call_next):
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
-
-handler = Mangum(app)
+    return {"status": "ok"};
 
 if __name__ == "__main__":
     import uvicorn
