@@ -6,7 +6,7 @@ import pandas_ta as ta
 from datetime import datetime, timedelta
 from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import urlencode
-from v1.router import router
+from api.v1.router import router as v1_router
 import nest_asyncio  # type: ignore
 nest_asyncio.apply()
 
@@ -22,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router)
+app.include_router(v1_router, prefix="/api/v1")
 
 @app.middleware("http")
 async def flatten_query_string_lists(request: Request, call_next):
