@@ -31,3 +31,7 @@ Werkzeug==3.0.3
 yfinance==0.2.40
 setuptools
 mangum==0.17.0
+pydantic>=1.8.0,<2.0.0
+pandas==2.0.3
+pandas-ta==0.3.14b
+python-multipart==0.0.6

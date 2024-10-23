@@ -6,13 +6,17 @@ import pandas_ta as ta
 from datetime import datetime, timedelta
 from fastapi.middleware.cors import CORSMiddleware
 from urllib.parse import urlencode
-from api.v1.router import router as v1_router
 import nest_asyncio  # type: ignore
 from mangum import Mangum
 nest_asyncio.apply()
 
-app = FastAPI()
+app = FastAPI(
+    title="StockBot API",
+    description="API for StockBot",
+    version="1.0.0"
+)
 
+from api.v1.router import router as v1_router
 origins = ["*"]
 
 app.add_middleware(
@@ -39,7 +43,7 @@ async def flatten_query_string_lists(request: Request, call_next):
 def health():
     return {"status": "ok"}
 
-handler = Mangum(app)
+handler = Mangum(app, lifespan="off")
 
 if __name__ == "__main__":
     import uvicorn
